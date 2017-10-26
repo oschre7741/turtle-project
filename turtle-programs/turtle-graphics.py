@@ -4,6 +4,8 @@ colormode(255)
 
 screensize(1000, 1000, "sky blue")
 
+TurtleScreen() = screen
+
 hunter = Turtle()
 steven = Turtle()
 taylor = Turtle()
@@ -18,6 +20,7 @@ def draw_sun(x, y, line, fill):
     hunter.penup()
     hunter.goto(x, y)
     hunter.pendown()
+    hunter.hideturtle()
 
     hunter.color(line, fill)
     
@@ -32,6 +35,7 @@ def draw_star(x, y, points, line, fill):
     steven.penup()
     steven.goto(x, y)
     steven.pendown()
+    steven.hideturtle()
 
     turn = 180 - (360 / points)
 
@@ -48,6 +52,7 @@ def draw_flower(x, y, line, fill):
     taylor.penup()
     taylor.goto(x, y)
     taylor.pendown()
+    taylor.hideturtle()
 
     taylor.color(line, fill)
 
@@ -66,6 +71,7 @@ def draw_stem(x, y, line):
     hunter.goto(x, y)
     hunter.pendown()
     hunter.pensize(10)
+    hunter.resizemode("auto")
 
     hunter.color(line)
 
@@ -87,11 +93,13 @@ def draw_cloud(x, y, line, fill):
     taylor.goto(x, y)
     taylor.pendown()
     taylor.pensize(15)
+    taylor.resizemode("auto")
 
     steven.penup()
     steven.goto(x, y)
     steven.pendown()
     steven.pensize(15)
+    steven.resizemode("auto")
 
     taylor.color(line, fill)
     steven.color(line, fill)
@@ -128,17 +136,20 @@ def forward(distance):
 
 hunter.ondrag(goto)
 
+screen.onkeypress(draw_flower, "Enter")
+screen.listen()
+
 draw_sun(400, 200, (255, 165, 0), "yellow")
 
-draw_flower(-250, 0, "orchid", "gold")
+draw_flower(-350, 0, "orchid", "gold")
 draw_flower(400, 0, "salmon", "gray")
 
 draw_star(0, -200, 50, "red", "black")
 draw_star(200, -200, 50, "indigo", "pink")
 draw_star(-200, -200, 50, "magenta", "violet")
 
-draw_stem(-250, -300, "green")
-draw_stem(300, -100, "green")
+draw_stem(-400, 100, "green")
+draw_stem(500, -200, "green")
 
 draw_stem(100, -300, "green")
 draw_stem(300, -500, "green")
@@ -146,7 +157,7 @@ draw_stem(-100, -300, "green")
 
 
 draw_cloud(-400, 300, "gray", "white")
-draw_cloud(-200, 200, "gray", "white")
+draw_cloud(0, 200, "gray", "white")
 
 done()
 
