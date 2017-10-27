@@ -1,19 +1,19 @@
 from turtle import *
 
-colormode(255)
-
-screensize(1000, 1000, "sky blue")
-
-TurtleScreen() = screen
-
 hunter = Turtle()
 steven = Turtle()
 taylor = Turtle()
 
+mode("standard")
+
+colormode(255)
+
+screensize(1000, 1000, "sky blue")
+
+title("A Pretty Little Scene")
+
 hunter.shape("turtle")
-
 steven.shape("turtle")
-
 taylor.shape("turtle")
 
 def draw_sun(x, y, line, fill):
@@ -29,6 +29,7 @@ def draw_sun(x, y, line, fill):
         hunter.forward(100)
         hunter.left(100)
     end_fill()
+    hunter.showturtle()
 speed(100)
 
 def draw_star(x, y, points, line, fill):
@@ -46,6 +47,7 @@ def draw_star(x, y, points, line, fill):
         steven.forward(200)
         steven.left(turn)
     end_fill()
+    steven.showturtle()
 speed(100)
 
 def draw_flower(x, y, line, fill):
@@ -62,8 +64,8 @@ def draw_flower(x, y, line, fill):
         taylor.right(110)
         taylor.forward(100)
         taylor.right(110)
-        
     end_fill()
+    taylor.showturtle()
 speed(100)
 
 def draw_stem(x, y, line):
@@ -128,7 +130,7 @@ speed(100)
 
 def forward(distance):
     while distance > 0:
-        if turtle.distance(0,0) > 1000:
+        if turtle.distance(0,0) > 600:
             angle = turtle.towards(0,0)
             turtle.setheading(angle)
         turtle.forward(1)
@@ -136,8 +138,7 @@ def forward(distance):
 
 hunter.ondrag(goto)
 
-screen.onkeypress(draw_flower, "Enter")
-screen.listen()
+onkeypress(draw_cloud, "Up")
 
 draw_sun(400, 200, (255, 165, 0), "yellow")
 
@@ -148,8 +149,8 @@ draw_star(0, -200, 50, "red", "black")
 draw_star(200, -200, 50, "indigo", "pink")
 draw_star(-200, -200, 50, "magenta", "violet")
 
-draw_stem(-400, 100, "green")
-draw_stem(500, -200, "green")
+draw_stem(-300, -200, "green")
+draw_stem(450, -200, "green")
 
 draw_stem(100, -300, "green")
 draw_stem(300, -500, "green")
@@ -160,4 +161,5 @@ draw_cloud(-400, 300, "gray", "white")
 draw_cloud(0, 200, "gray", "white")
 
 done()
+exitonclick()
 
